@@ -87,49 +87,41 @@ public class Settings extends Playing implements SceneMethods {
 		if (bMenu.getBounds().contains(x, y))
 			SetGameState(MENU);
 		else if (bEasy.getBounds().contains(x, y)) {
-			if (!checkCurrentDifficulty(difficulty.difficultyINT, 1)) {
-				if (!isGampePlayed()) {
-					game.getPlaying().resetEverything();
-				}
+				
 				difficulty.setObjectDifficulty(1, "Easy");
 				enemies.setLevel(1);
 				waveManager.setLevel(1);
-				Playing.lvl = LoadSave.GetLevelData("Easy");
-				ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints("Easy");
-				Playing.start = points.get(0);
-				Playing.end = points.get(1);
-				
+//				lvl = LoadSave.GetLevelData("Hard");
+				setCondition("Easy");
+				loadDefaultLevel();
+				//game.getPlaying().resetEverything();
+				replayGame();
 			}
-		}
+		
 		else if (bMedium.getBounds().contains(x, y)) {
-			if (!checkCurrentDifficulty(difficulty.difficultyINT, 2)) {
-				if (!isGampePlayed()) {
-					game.getPlaying().resetEverything();
-				}
+				
 				difficulty.setObjectDifficulty(2, "Medium");
 				enemies.setLevel(2);
 				waveManager.setLevel(2);
-				Playing.lvl = LoadSave.GetLevelData("Medium");
-				ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints("Medium");
-				Playing.start = points.get(0);
-				Playing.end = points.get(1);
-			}
+//				lvl = LoadSave.GetLevelData("Hard");
+				setCondition("Medium");
+				loadDefaultLevel();
+				replayGame();
+			
 		}
 		else if (bHard.getBounds().contains(x, y)) {
-			if (!checkCurrentDifficulty(difficulty.difficultyINT, 2)) {
-				if (!isGampePlayed()) {
-					game.getPlaying().resetEverything();
-				}
+				
 				difficulty.setObjectDifficulty(3, "Hard");
 				enemies.setLevel(3);
 				waveManager.setLevel(3);
-				Playing.lvl = LoadSave.GetLevelData("Hard");
-				ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints("Hard");
-				Playing.start = points.get(0);
-				Playing.end = points.get(1);
-			}
+//				lvl = LoadSave.GetLevelData("Hard");
+				setCondition("Hard");
+				loadDefaultLevel();
+				//game.getPlaying().resetEverything();
+				replayGame();
 		}
 
+	
 	}
 
 	@Override

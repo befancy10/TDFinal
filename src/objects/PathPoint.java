@@ -1,7 +1,7 @@
 package objects;
 
-public class PathPoint {
-	private int xCord, yCord;
+	public class PathPoint {
+	public int xCord, yCord;
 
 	public PathPoint(int xCord, int yCord) {
 		this.xCord = xCord;

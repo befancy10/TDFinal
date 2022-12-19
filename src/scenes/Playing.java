@@ -4,6 +4,7 @@ import static main.GameStates.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -33,10 +34,13 @@ public class Playing extends GameScene implements SceneMethods {
 	private Tower selectedTower;
 	private int goldTick;
 	private boolean gamePaused;
+	public static String condition= "Easy";
 
 	public Playing(Game game) {
 		super(game);
 		loadDefaultLevel();
+		print();
+		
 
 		actionBar = new ActionBar(0, 640, 640, 160, this);
 		enemyManager = new EnemyManager(this, start, end);
@@ -45,12 +49,18 @@ public class Playing extends GameScene implements SceneMethods {
 		waveManager = new WaveManager(this);
 	}
 	
+	public void print()
+	{
+		System.out.println("xcordstart:" + start.getxCord() +"ycordstart:" +  start.getyCord() + "\n");
+		System.out.println(" xcordend:" + end.getxCord()+ "ycordend:" + end.getyCord() + "\n");
+	}
+	
 	public void replayGame() {
 		// reset everything
 		resetAll();
 
 		// change state to playing
-		SetGameState(PLAYING);
+	//	SetGameState(PLAYING);
 
 	}
 	
@@ -58,12 +68,13 @@ public class Playing extends GameScene implements SceneMethods {
 		game.getPlaying().resetEverything();
 	}
 
-	private void loadDefaultLevel() {
-
-		lvl = LoadSave.GetLevelData("Easy");
-		ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints("Easy");
-		start = points.get(0);
-		end = points.get(1);
+	protected static void loadDefaultLevel() {
+		start = null;
+		end = null;
+		lvl = LoadSave.GetLevelData(getCondition());
+		ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints(getCondition());
+			start = points.get(0);
+			end = points.get(1);
 	}
 
 	public void setLevel(int[][] lvl) {
@@ -325,6 +336,7 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager.reset();
 		waveManager.reset();
 
+
 		mouseX = 0;
 		mouseY = 0;
 
@@ -333,5 +345,14 @@ public class Playing extends GameScene implements SceneMethods {
 		gamePaused = false;
 
 	}
+	
+	public static String getCondition() {
+		return condition;
+	}
+	public void setCondition(String condition) {
+		
+		this.condition = condition;
+	}
+	
 
 }

@@ -30,8 +30,8 @@ public class Editing extends GameScene implements SceneMethods {
 	}
 
 	private void loadDefaultLevel() {
-		lvl = LoadSave.GetLevelData("hard");
-		ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints("hard");
+		lvl = LoadSave.GetLevelData("Hard");
+		ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints("Hard");
 		start = points.get(0);
 		end = points.get(1);
 	}
