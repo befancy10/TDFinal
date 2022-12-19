@@ -1,0 +1,15 @@
+Junez objectives :
+- add restart button (DONEEEEEE)
+- tampilan win sama gameover
+- nambah difficulties di settings (movement speed sm hp enemy, waves)
+- string display difficulties di menu (DONEEEE)
+
+Ferro Objectives
+- Redesign SpriteAtlas (DONEEE)
+- Redesign Start Menu
+-
+
+
+
+Spare time ;
+Upgrade tampilan tower berubah
