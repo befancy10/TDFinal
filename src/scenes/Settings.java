@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import main.Game;
 import objects.PathPoint;
 import ui.MyButton;
@@ -87,38 +89,76 @@ public class Settings extends Playing implements SceneMethods {
 		if (bMenu.getBounds().contains(x, y))
 			SetGameState(MENU);
 		else if (bEasy.getBounds().contains(x, y)) {
+			int choose = JOptionPane.showConfirmDialog(null,
+					"Do you really want to change the difficulty of the game?",
+					"Confirm", JOptionPane.YES_NO_OPTION,
+					 JOptionPane.INFORMATION_MESSAGE);
+					 if (choose == JOptionPane.YES_OPTION) 
+					 {
+						 difficulty.setObjectDifficulty(1, "Easy");
+						 enemies.setLevel(1);
+						 waveManager.setLevel(1);
+//							lvl = LoadSave.GetLevelData("Hard");
+						 setCondition("Easy");
+						 loadDefaultLevel();
+						 //game.getPlaying().resetEverything();
+						 replayGame();
+						 System.out.println("Diff Changed Easy");
+					 } 
+					 else 
+					 {
+						 
+					 }
 				
-				difficulty.setObjectDifficulty(1, "Easy");
-				enemies.setLevel(1);
-				waveManager.setLevel(1);
-//				lvl = LoadSave.GetLevelData("Hard");
-				setCondition("Easy");
-				loadDefaultLevel();
-				//game.getPlaying().resetEverything();
-				replayGame();
+				
 			}
 		
 		else if (bMedium.getBounds().contains(x, y)) {
+			int choose = JOptionPane.showConfirmDialog(null,
+					"Do you really want to change the difficulty of the game ?",
+					"Confirm", JOptionPane.YES_NO_OPTION,
+					 JOptionPane.INFORMATION_MESSAGE);
+					 if (choose == JOptionPane.YES_OPTION) 
+					 {
+						 difficulty.setObjectDifficulty(2, "Medium");
+						 enemies.setLevel(2);
+						 waveManager.setLevel(2);
+//							lvl = LoadSave.GetLevelData("Hard");
+						 setCondition("Medium");
+						 loadDefaultLevel();
+						 replayGame();
+						 System.out.println("Diff Changed Medium");
+					 } 
+					 else 
+					 {
+						 
+					 }
 				
-				difficulty.setObjectDifficulty(2, "Medium");
-				enemies.setLevel(2);
-				waveManager.setLevel(2);
-//				lvl = LoadSave.GetLevelData("Hard");
-				setCondition("Medium");
-				loadDefaultLevel();
-				replayGame();
+				
 			
 		}
 		else if (bHard.getBounds().contains(x, y)) {
+			int choose = JOptionPane.showConfirmDialog(null,
+					"Do you really want to change the difficulty of the game ?",
+					"Confirm", JOptionPane.YES_NO_OPTION,
+					 JOptionPane.INFORMATION_MESSAGE);
+					 if (choose == JOptionPane.YES_OPTION) 
+					 {
+						 difficulty.setObjectDifficulty(3, "Hard");
+						 enemies.setLevel(3);
+						 waveManager.setLevel(3);
+//							lvl = LoadSave.GetLevelData("Hard");
+						 setCondition("Hard");
+						 loadDefaultLevel();
+						 //game.getPlaying().resetEverything();
+						 replayGame();
+						 System.out.println("Diff Changed Hard");
+					 } 
+					 else 
+					 {
+						 
+					 }
 				
-				difficulty.setObjectDifficulty(3, "Hard");
-				enemies.setLevel(3);
-				waveManager.setLevel(3);
-//				lvl = LoadSave.GetLevelData("Hard");
-				setCondition("Hard");
-				loadDefaultLevel();
-				//game.getPlaying().resetEverything();
-				replayGame();
 		}
 
 	

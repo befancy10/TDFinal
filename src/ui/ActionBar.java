@@ -48,6 +48,7 @@ public class ActionBar extends Bar {
 		gold = 100;
 		selectedTower = null;
 		displayedTower = null;
+		bPause.setText("Pause");
 	}
 
 	private void initButtons() {
